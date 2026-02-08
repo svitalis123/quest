@@ -1,0 +1,164 @@
+[
+    {
+        "learner": {
+            "id": "nov-2026-001",
+            "firstName": "Kamau",
+            "lastName": "Mutua",
+            "grade": 12,
+            "school": "Tatu City Boys Secondary",
+            "region": "Kenya"
+        },
+        "currentAssessment": {
+            "learnerId": "nov-2026-001",
+            "overallScore": 68,
+            "overallLabel": "Ready to Build",
+            "interpretation": "You are making steady progress. Focusing on specific growth areas will further strengthen your profile.",
+            "dimensions": {
+                "academics": {
+                    "score": 82,
+                    "label": "Academics",
+                    "trend": "improving",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "career_skills": {
+                    "score": 61,
+                    "label": "Career Skills",
+                    "trend": "stable",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "life_skills": {
+                    "score": 74,
+                    "label": "Life Skills",
+                    "trend": "improving",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "entrepreneurship": {
+                    "score": 55,
+                    "label": "Entrepreneurship",
+                    "trend": "declining",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                }
+            },
+            "recommendations": [
+                {
+                    "id": "rec_001",
+                    "text": "Complete the remaining pending items for the African Innovation Olympiad.",
+                    "type": "action"
+                },
+                {
+                    "id": "rec_002",
+                    "text": "Your Academic score has increased by 10% this term! This is a great example of our 'Always Growing' principle in action.",
+                    "type": "encouragement"
+                }
+            ]
+        }
+    },
+    {
+        "learner": {
+            "id": "nov-2026-002",
+            "firstName": "Amani",
+            "lastName": "Wanjiku",
+            "grade": 12,
+            "school": "Tatu City Girls Secondary",
+            "region": "Kenya"
+        },
+        "currentAssessment": {
+            "learnerId": "nov-2026-002",
+            "overallScore": 88,
+            "overallLabel": "Global Leader",
+            "interpretation": "You are demonstrating exceptional readiness! Your hard work is positioning you as a global leader.",
+            "dimensions": {
+                "academics": {
+                    "score": 92,
+                    "label": "Academics",
+                    "trend": "stable",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "career_skills": {
+                    "score": 85,
+                    "label": "Career Skills",
+                    "trend": "improving",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "life_skills": {
+                    "score": 89,
+                    "label": "Life Skills",
+                    "trend": "improving",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "entrepreneurship": {
+                    "score": 86,
+                    "label": "Entrepreneurship",
+                    "trend": "stable",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                }
+            },
+            "recommendations": [
+                {
+                    "id": "rec_003",
+                    "text": "Consider mentoring a peer in Entrepreneurship based on your excellent results.",
+                    "type": "action"
+                },
+                {
+                    "id": "rec_004",
+                    "text": "Outstanding work maintaining high standards across all dimensions.",
+                    "type": "encouragement"
+                }
+            ]
+        }
+    },
+    {
+        "learner": {
+            "id": "nov-2026-003",
+            "firstName": "Juma",
+            "lastName": "Ochieng",
+            "grade": 11,
+            "school": "Eldoret Boys Secondary",
+            "region": "Kenya"
+        },
+        "currentAssessment": {
+            "learnerId": "nov-2026-003",
+            "overallScore": 54,
+            "overallLabel": "Growth Opportunity",
+            "interpretation": "You are at the start of an exciting journey. Consistent engagement will help you unlock your full potential.",
+            "dimensions": {
+                "academics": {
+                    "score": 62,
+                    "label": "Academics",
+                    "trend": "stable",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "career_skills": {
+                    "score": 45,
+                    "label": "Career Skills",
+                    "trend": "declining",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "life_skills": {
+                    "score": 58,
+                    "label": "Life Skills",
+                    "trend": "improving",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                },
+                "entrepreneurship": {
+                    "score": 51,
+                    "label": "Entrepreneurship",
+                    "trend": "stable",
+                    "lastUpdated": "2026-02-15T00:00:00Z"
+                }
+            },
+            "recommendations": [
+                {
+                    "id": "rec_005",
+                    "text": "Schedule a session with your success coach to discuss career skills strategies.",
+                    "type": "action"
+                },
+                {
+                    "id": "rec_006",
+                    "text": "Great improvement in Life Skills! Keep building on that momentum.",
+                    "type": "encouragement"
+                }
+            ]
+        }
+    }
+]
