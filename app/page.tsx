@@ -6,6 +6,13 @@ import { ReadinessGauge } from "@/components/features/ReadinessGauge";
 import { SkillCard } from "@/components/features/SkillCard";
 import { CoachCard } from "@/components/features/CoachCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { PageTransition } from "@/components/common/PageTransition";
 import { FadeInList, FadeInItem } from "@/components/common/FadeInList";
 
@@ -15,16 +22,17 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center gap-6 py-8" role="status" aria-label="Loading dashboard">
-        <Skeleton className="h-[200px] w-[200px] rounded-full" />
-        <Skeleton className="h-5 w-32 rounded-full" />
-        <Skeleton className="h-4 w-64" />
-        <Skeleton className="h-20 w-full rounded-lg" />
-        <div className="w-full space-y-3">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} className="h-24 w-full rounded-xl" />
-          ))}
+      <div className="flex flex-col gap-6 py-8" role="status" aria-label="Loading dashboard">
+        <Skeleton className="h-8 w-64" />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <Skeleton className="h-[340px] rounded-xl" />
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-2">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <Skeleton key={i} className="h-24 rounded-xl" />
+            ))}
+          </div>
         </div>
+        <Skeleton className="h-40 w-full rounded-xl" />
       </div>
     );
   }
@@ -47,30 +55,47 @@ export default function DashboardPage() {
           Welcome back, {learner.firstName}
         </h1>
 
-        {/* Overall Readiness Gauge */}
-        <ReadinessGauge
-          score={currentAssessment.overallScore}
-          label={currentAssessment.overallLabel}
-          interpretation={currentAssessment.interpretation}
-        />
-
-        {/* Skill Area Breakdown */}
-        <h2 className="text-lg font-semibold text-quest-title">
-          Skill Areas
-        </h2>
-
-        <FadeInList className="flex flex-col gap-3">
-          {dimensionEntries.map(([key, dim]) => (
-            <FadeInItem key={key}>
-              <SkillCard
-                dimensionKey={key}
-                label={dim.label}
-                score={dim.score}
-                trend={dim.trend}
+        {/* Main dashboard grid: gauge left, skill cards right on lg+ */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {/* Overall Readiness Card */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm text-quest-title">
+                Overall Readiness
+              </CardTitle>
+              <CardDescription className="text-xs text-quest-desc">
+                Your current readiness score
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex justify-center">
+              <ReadinessGauge
+                score={currentAssessment.overallScore}
+                label={currentAssessment.overallLabel}
+                interpretation={currentAssessment.interpretation}
               />
-            </FadeInItem>
-          ))}
-        </FadeInList>
+            </CardContent>
+          </Card>
+
+          {/* Skill Area Breakdown — 2-col grid in the remaining 2/3 */}
+          <div className="flex flex-col gap-3 lg:col-span-2">
+            <h2 className="text-lg font-semibold text-quest-title">
+              Skill Areas
+            </h2>
+
+            <FadeInList className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {dimensionEntries.map(([key, dim]) => (
+                <FadeInItem key={key}>
+                  <SkillCard
+                    dimensionKey={key}
+                    label={dim.label}
+                    score={dim.score}
+                    trend={dim.trend}
+                  />
+                </FadeInItem>
+              ))}
+            </FadeInList>
+          </div>
+        </div>
 
         {/* Success Coach Insights */}
         {insight && (

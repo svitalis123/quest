@@ -137,7 +137,7 @@ export default function DimensionDetailPage({
 
   return (
     <PageTransition>
-      <section className="flex flex-col gap-6" aria-labelledby="dimension-heading">
+      <section className="mx-auto flex max-w-4xl flex-col gap-6" aria-labelledby="dimension-heading">
         {/* Back link — 48px touch target */}
         <nav aria-label="Breadcrumb">
           <Link
@@ -173,93 +173,96 @@ export default function DimensionDetailPage({
           </span>
         </div>
 
-        {/* 3-month trend line */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-sm text-quest-title">
-              3-Month Trend
-            </CardTitle>
-            <CardDescription className="text-xs text-quest-desc">
-              {dimension.label} performance over the last 3 months
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            {historyLoading ? (
-              <Skeleton className="h-[200px] w-full" />
-            ) : (
-              <ChartContainer config={trendConfig} className="h-[200px] w-full">
-                <LineChart
-                  accessibilityLayer
-                  data={history}
-                  margin={{ left: 8, right: 8, top: 8, bottom: 8 }}
-                >
-                  <CartesianGrid vertical={false} />
-                  <XAxis
-                    dataKey="month"
-                    tickLine={false}
-                    axisLine={false}
-                    tickMargin={8}
-                  />
-                  <YAxis
-                    domain={[0, 100]}
-                    tickLine={false}
-                    axisLine={false}
-                    tickMargin={4}
-                    width={32}
-                  />
+        {/* Charts grid: side-by-side on lg+ */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {/* 3-month trend line */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm text-quest-title">
+                3-Month Trend
+              </CardTitle>
+              <CardDescription className="text-xs text-quest-desc">
+                {dimension.label} performance over the last 3 months
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              {historyLoading ? (
+                <Skeleton className="h-[200px] w-full" />
+              ) : (
+                <ChartContainer config={trendConfig} className="h-[200px] w-full">
+                  <LineChart
+                    accessibilityLayer
+                    data={history}
+                    margin={{ left: 8, right: 8, top: 8, bottom: 8 }}
+                  >
+                    <CartesianGrid vertical={false} />
+                    <XAxis
+                      dataKey="month"
+                      tickLine={false}
+                      axisLine={false}
+                      tickMargin={8}
+                    />
+                    <YAxis
+                      domain={[0, 100]}
+                      tickLine={false}
+                      axisLine={false}
+                      tickMargin={4}
+                      width={32}
+                    />
+                    <ChartTooltip
+                      cursor={false}
+                      content={<ChartTooltipContent hideLabel />}
+                    />
+                    <Line
+                      dataKey="score"
+                      type="natural"
+                      stroke="var(--color-score)"
+                      strokeWidth={2}
+                      dot={{ r: 4, fill: "var(--color-score)" }}
+                    />
+                  </LineChart>
+                </ChartContainer>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Radar chart — dimension balance */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-sm text-quest-title">
+                Readiness Balance
+              </CardTitle>
+              <CardDescription className="text-xs text-quest-desc">
+                How {learner.firstName}&apos;s dimensions compare
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ChartContainer
+                config={radarConfig}
+                className="mx-auto aspect-square max-h-[280px]"
+              >
+                <RadarChart data={radarData}>
                   <ChartTooltip
                     cursor={false}
                     content={<ChartTooltipContent hideLabel />}
                   />
-                  <Line
+                  <PolarGrid className="opacity-20" />
+                  <PolarAngleAxis
+                    dataKey="dimension"
+                    tick={{ fontSize: 11, fill: "var(--quest-desc)" }}
+                  />
+                  <Radar
                     dataKey="score"
-                    type="natural"
+                    fill="var(--color-score)"
+                    fillOpacity={0.3}
                     stroke="var(--color-score)"
                     strokeWidth={2}
-                    dot={{ r: 4, fill: "var(--color-score)" }}
                   />
-                </LineChart>
+                </RadarChart>
               </ChartContainer>
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Radar chart — dimension balance */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-sm text-quest-title">
-              Readiness Balance
-            </CardTitle>
-            <CardDescription className="text-xs text-quest-desc">
-              How {learner.firstName}&apos;s dimensions compare
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ChartContainer
-              config={radarConfig}
-              className="mx-auto aspect-square max-h-[280px]"
-            >
-              <RadarChart data={radarData}>
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <PolarGrid className="opacity-20" />
-                <PolarAngleAxis
-                  dataKey="dimension"
-                  tick={{ fontSize: 11, fill: "var(--quest-desc)" }}
-                />
-                <Radar
-                  dataKey="score"
-                  fill="var(--color-score)"
-                  fillOpacity={0.3}
-                  stroke="var(--color-score)"
-                  strokeWidth={2}
-                />
-              </RadarChart>
-            </ChartContainer>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </section>
     </PageTransition>
   );
