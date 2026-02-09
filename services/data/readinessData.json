@@ -43,7 +43,46 @@
                 {
                     "id": "rec_001",
                     "text": "Complete the remaining pending items for the African Innovation Olympiad.",
-                    "type": "action"
+                    "type": "action",
+                    "dimensionKey": "entrepreneurship",
+                    "growthContext": "Building entrepreneurship skills prepares you to create opportunities — for yourself and your community. Every step you take here strengthens your ability to lead and innovate.",
+                    "estimatedTime": "2 weeks",
+                    "steps": [
+                        {
+                            "id": "step_001_1",
+                            "title": "Review the Olympiad project brief",
+                            "description": "Read through the full project brief and highlight the sections you still need to address. Make notes on any areas where you need help."
+                        },
+                        {
+                            "id": "step_001_2",
+                            "title": "Draft your innovation proposal",
+                            "description": "Write a one-page proposal outlining your idea, the problem it solves, and who benefits. Focus on clarity over complexity."
+                        },
+                        {
+                            "id": "step_001_3",
+                            "title": "Get feedback from a peer or mentor",
+                            "description": "Share your draft with someone you trust and ask for honest feedback. Incorporate at least two suggestions."
+                        },
+                        {
+                            "id": "step_001_4",
+                            "title": "Submit your final entry",
+                            "description": "Polish your proposal, double-check all requirements, and submit before the deadline."
+                        }
+                    ],
+                    "resources": [
+                        {
+                            "id": "res_001_1",
+                            "label": "African Innovation Olympiad Guidelines",
+                            "url": "https://example.com/olympiad-guidelines",
+                            "type": "document"
+                        },
+                        {
+                            "id": "res_001_2",
+                            "label": "How to Write a Winning Proposal (Video)",
+                            "url": "https://example.com/proposal-video",
+                            "type": "video"
+                        }
+                    ]
                 },
                 {
                     "id": "rec_002",
@@ -97,7 +136,41 @@
                 {
                     "id": "rec_003",
                     "text": "Consider mentoring a peer in Entrepreneurship based on your excellent results.",
-                    "type": "action"
+                    "type": "action",
+                    "dimensionKey": "entrepreneurship",
+                    "growthContext": "Mentoring others is one of the most powerful ways to deepen your own mastery. By sharing what you know, you reinforce your skills and inspire those around you.",
+                    "estimatedTime": "3 weeks",
+                    "steps": [
+                        {
+                            "id": "step_003_1",
+                            "title": "Identify a peer who could benefit",
+                            "description": "Look for a classmate who is working on entrepreneurship skills and would welcome guidance. Ask your teacher or success coach for suggestions."
+                        },
+                        {
+                            "id": "step_003_2",
+                            "title": "Set up a mentoring schedule",
+                            "description": "Agree on a regular time to meet — even 30 minutes a week can make a big difference. Plan your first session around their current goals."
+                        },
+                        {
+                            "id": "step_003_3",
+                            "title": "Share a practical exercise or project",
+                            "description": "Walk your mentee through a real exercise you found helpful, like drafting a mini business plan or practising a pitch."
+                        }
+                    ],
+                    "resources": [
+                        {
+                            "id": "res_003_1",
+                            "label": "Peer Mentoring Best Practices",
+                            "url": "https://example.com/mentoring-guide",
+                            "type": "link"
+                        },
+                        {
+                            "id": "res_003_2",
+                            "label": "Entrepreneurship Mentoring Toolkit",
+                            "url": "https://example.com/entrepreneurship-toolkit",
+                            "type": "document"
+                        }
+                    ]
                 },
                 {
                     "id": "rec_004",
@@ -151,7 +224,41 @@
                 {
                     "id": "rec_005",
                     "text": "Schedule a session with your success coach to discuss career skills strategies.",
-                    "type": "action"
+                    "type": "action",
+                    "dimensionKey": "career_skills",
+                    "growthContext": "Career skills open doors to opportunities you might not even know exist yet. Working with your success coach helps you discover your strengths and build a plan that fits your goals.",
+                    "estimatedTime": "1 week",
+                    "steps": [
+                        {
+                            "id": "step_005_1",
+                            "title": "Reflect on your career interests",
+                            "description": "Spend 15 minutes writing down three careers that interest you and why. Think about what activities energise you."
+                        },
+                        {
+                            "id": "step_005_2",
+                            "title": "Book a session with your success coach",
+                            "description": "Reach out to your success coach and request a 30-minute meeting. Share your career interests in advance so you can make the most of the time."
+                        },
+                        {
+                            "id": "step_005_3",
+                            "title": "Create a short-term action plan",
+                            "description": "After your session, write down 2–3 concrete next steps you agreed on. Set a reminder to check in on your progress in one week."
+                        }
+                    ],
+                    "resources": [
+                        {
+                            "id": "res_005_1",
+                            "label": "Career Exploration Worksheet",
+                            "url": "https://example.com/career-worksheet",
+                            "type": "document"
+                        },
+                        {
+                            "id": "res_005_2",
+                            "label": "Finding Your Strengths (Video)",
+                            "url": "https://example.com/strengths-video",
+                            "type": "video"
+                        }
+                    ]
                 },
                 {
                     "id": "rec_006",

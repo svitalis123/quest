@@ -56,10 +56,28 @@ export interface ReadinessDimensions {
 
 export type RecommendationType = "action" | "encouragement";
 
+export interface ActionStep {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export interface ActionResource {
+  id: string;
+  label: string;
+  url: string;
+  type: "link" | "video" | "document";
+}
+
 export interface Recommendation {
   id: string;
   text: string;
   type: RecommendationType;
+  dimensionKey?: string;
+  growthContext?: string;
+  estimatedTime?: string;
+  steps?: ActionStep[];
+  resources?: ActionResource[];
 }
 
 // ---- Assessment ---------------------------------------------
@@ -82,4 +100,6 @@ export interface ReadinessData {
   currentAssessment: ReadinessAssessment | null;
   isLoading: boolean;
   error: string | null;
+  learnerId: string;
+  setLearnerId: (id: string) => void;
 }

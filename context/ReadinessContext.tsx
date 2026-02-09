@@ -2,6 +2,7 @@
 
 import {
   createContext,
+  useCallback,
   useEffect,
   useState,
   type ReactNode,
@@ -20,22 +21,25 @@ export const ReadinessContext = createContext<ReadinessData>({
   currentAssessment: null,
   isLoading: true,
   error: null,
+  learnerId: DEFAULT_LEARNER_ID,
+  setLearnerId: () => {},
 });
 
 interface ReadinessProviderProps {
-  learnerId?: string;
   children: ReactNode;
 }
 
-export function ReadinessProvider({
-  learnerId = DEFAULT_LEARNER_ID,
-  children,
-}: ReadinessProviderProps) {
+export function ReadinessProvider({ children }: ReadinessProviderProps) {
+  const [learnerId, setLearnerId] = useState(DEFAULT_LEARNER_ID);
   const [learner, setLearner] = useState<LearnerProfile | null>(null);
   const [currentAssessment, setCurrentAssessment] =
     useState<ReadinessAssessment | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const handleSetLearnerId = useCallback((id: string) => {
+    setLearnerId(id);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -69,7 +73,16 @@ export function ReadinessProvider({
   }, [learnerId]);
 
   return (
-    <ReadinessContext value={{ learner, currentAssessment, isLoading, error }}>
+    <ReadinessContext
+      value={{
+        learner,
+        currentAssessment,
+        isLoading,
+        error,
+        learnerId,
+        setLearnerId: handleSetLearnerId,
+      }}
+    >
       {children}
     </ReadinessContext>
   );

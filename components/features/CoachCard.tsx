@@ -21,15 +21,15 @@ export function CoachCard({ insight, className }: CoachCardProps) {
   return (
     <div className={cn("flex flex-col gap-3", className)}>
       {/* Headline card — Quest yellow */}
-      <Card className="border-0 bg-quest-btn-bg shadow-sm">
+      <Card className="border-0 bg-quest-btn-bg shadow-sm dark:bg-quest-btn-bg/80">
         <CardHeader className="px-4 pb-2">
-          <CardTitle className="flex items-center gap-2 text-sm font-bold text-quest-primary">
+          <CardTitle className="flex items-center gap-2 text-sm font-bold text-quest-primary dark:text-[#1E3F75]">
             <Sparkles className="size-4" />
             Your Success Coach
           </CardTitle>
         </CardHeader>
         <CardContent className="px-4">
-          <p className="text-sm leading-relaxed text-quest-primary/80">
+          <p className="text-sm leading-relaxed text-quest-primary/80 dark:text-[#1E3F75]/80">
             {insight.headline}
           </p>
 
@@ -38,7 +38,7 @@ export function CoachCard({ insight, className }: CoachCardProps) {
             <Badge className="bg-quest-primary text-white">
               Focus: {insight.focusDimension.label}
             </Badge>
-            <Badge variant="outline" className="border-quest-primary/30 text-quest-primary">
+            <Badge variant="outline" className="border-quest-primary/30 text-quest-primary dark:border-[#1E3F75]/30 dark:text-[#1E3F75]">
               {insight.focusLabel}
             </Badge>
           </div>
@@ -57,8 +57,8 @@ export function CoachCard({ insight, className }: CoachCardProps) {
                 {rec.text}
               </p>
               <Link
-                href={`/details/${insight.focusKey}`}
-                className="inline-flex min-h-12 items-center gap-1 self-start rounded-md bg-quest-btn-bg px-4 text-xs font-semibold text-quest-primary transition-colors hover:bg-quest-btn-hover hover:text-white"
+                href={`/actions/${rec.id}`}
+                className="inline-flex min-h-12 items-center gap-1 self-start rounded-md bg-quest-btn-bg px-4 text-xs font-semibold text-quest-primary transition-colors hover:bg-quest-btn-hover hover:text-white dark:text-[#1E3F75] dark:hover:text-white"
               >
                 Take Action
                 <ArrowRight className="size-3.5" />
