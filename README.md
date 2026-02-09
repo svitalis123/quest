@@ -4,7 +4,7 @@ The **Quest Post-School Success Platform (PSSP)** represents a sophisticated int
 
 This repository contains the source for the Learner Readiness Application, a mobile-first experience designed specifically for 15-to-18-year-old students in Kenya.
 
-## 🎥 Video Walkthrough
+##  Video Walkthrough
 [Watch the walkthrough on Loom](https://www.loom.com/share/48d7b8a595a544db8276dded89a30d09)
 
 ---
