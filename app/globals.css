@@ -101,6 +101,15 @@
 }
 
 .dark {
+  /* Quest brand — dark mode overrides */
+  --quest-primary: #8EAED4;
+  --quest-title: #A3BFE0;
+  --quest-desc: #9CA3AF;
+  --quest-link: #B0B8C4;
+  --quest-success: #5AD85A;
+  --quest-btn-bg: #FFD100;
+  --quest-btn-hover: #8EAED4;
+
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

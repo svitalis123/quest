@@ -1,4 +1,4 @@
-import type { LearnerProfile, ReadinessAssessment } from "@/types/readiness";
+import type { LearnerProfile, ReadinessAssessment, Recommendation } from "@/types/readiness";
 import readinessJson from "@/services/data/readinessData.json";
 
 export interface ReadinessRecord {
@@ -12,7 +12,27 @@ export interface DimensionHistoryPoint {
   score: number;
 }
 
+export interface LearnerProfileSummary {
+  id: string;
+  firstName: string;
+  lastName: string;
+}
+
 const SIMULATED_DELAY_MS = 500;
+
+/** Return a summary list of all learner profiles (for the profile switcher). */
+export function getLearnerProfiles(): Promise<LearnerProfileSummary[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const profiles = (readinessJson as ReadinessRecord[]).map((r) => ({
+        id: r.learner.id,
+        firstName: r.learner.firstName,
+        lastName: r.learner.lastName,
+      }));
+      resolve(profiles);
+    }, SIMULATED_DELAY_MS);
+  });
+}
 
 /** Return all learner readiness records after a simulated network delay. */
 export function getReadinessData(): Promise<ReadinessRecord[]> {
@@ -73,6 +93,37 @@ export function getDimensionHistory(
       }));
 
       resolve(history);
+    }, SIMULATED_DELAY_MS);
+  });
+}
+
+/** Context bundle returned alongside a recommendation. */
+export interface RecommendationWithContext {
+  recommendation: Recommendation;
+  learner: LearnerProfile;
+  assessment: ReadinessAssessment;
+}
+
+/** Look up a single recommendation by ID across all learner records. */
+export function getRecommendationById(
+  id: string
+): Promise<RecommendationWithContext | undefined> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      for (const record of readinessJson as ReadinessRecord[]) {
+        const rec = record.currentAssessment.recommendations.find(
+          (r) => r.id === id
+        );
+        if (rec) {
+          resolve({
+            recommendation: rec,
+            learner: record.learner,
+            assessment: record.currentAssessment,
+          });
+          return;
+        }
+      }
+      resolve(undefined);
     }, SIMULATED_DELAY_MS);
   });
 }
