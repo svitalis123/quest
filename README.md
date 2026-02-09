@@ -22,7 +22,7 @@ The successful implementation of this platform depends fundamentally on a nuance
 
 ---
 
-##  Pedagogical Foundation: Nova Pioneer Culture Principles
+##  Nova Pioneer Culture Principles
 
 The Quest platform is an extension of the Nova Pioneer culture. Every component reinforces these core values:
 
