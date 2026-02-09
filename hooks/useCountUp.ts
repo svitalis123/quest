@@ -2,10 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/**
- * Animate a number from 0 to `target` over `duration` ms.
- * Respects prefers-reduced-motion.
- */
 export function useCountUp(target: number, duration = 800): number {
   const [value, setValue] = useState(0);
   const prefersReduced = useRef(false);

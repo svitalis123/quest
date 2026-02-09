@@ -11,19 +11,12 @@ import {
 } from "@/types/readiness";
 
 export interface CoachInsight {
-  /** The dimension key with the lowest score. */
   focusKey: string;
-  /** The full dimension object for the focus area. */
   focusDimension: ReadinessDimension;
-  /** Readiness level of the focus area. */
   focusLevel: ReadinessLevel;
-  /** Growth-mindset label for the focus area. */
   focusLabel: string;
-  /** Personalised headline from the coach. */
   headline: string;
-  /** Action recommendations from the assessment data. */
   actions: Recommendation[];
-  /** Encouragement recommendations from the assessment data. */
   encouragements: Recommendation[];
 }
 
