@@ -241,7 +241,11 @@ export default function DimensionDetailPage({
                 config={radarConfig}
                 className="mx-auto aspect-square max-h-[280px]"
               >
-                <RadarChart data={radarData}>
+                <RadarChart
+                  data={radarData}
+                  outerRadius="65%"
+                  margin={{ top: 24, right: 48, bottom: 24, left: 48 }}
+                >
                   <ChartTooltip
                     cursor={false}
                     content={<ChartTooltipContent hideLabel />}
